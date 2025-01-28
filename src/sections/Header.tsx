@@ -1,3 +1,4 @@
+import { Button } from "@/components/Button";
 import { FC } from "react";
 
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
@@ -26,7 +27,7 @@ const navItems = [
 
 const Header: FC = () => {
   return (
-    <header>
+    <header className="fixed top-0 left-0 w-full backdrop-blur-md">
       <div className="container !max-w-full">
         <div className="flex justify-between h-20 items-center">
           <div>
@@ -38,7 +39,7 @@ const Header: FC = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="size-11 border border-stone-400 rounded-full inline-flex items-center justify-center">
+            <div className="size-11 border border-stone-400 rounded-full inline-flex items-center justify-center bg-stone-200">
               <svg
                 width="24"
                 height="24"
@@ -51,9 +52,9 @@ const Header: FC = () => {
               </svg>
             </div>
 
-            <button className="bg-red-orange-500 h-11 px-6 rounded-xl text-white border border-red-orange-500 uppercase hidden md:inline-flex items-center">
+            <Button variant="primary" className="hidden md:inline-flex">
               Contact Me
-            </button>
+            </Button>
           </div>
         </div>
       </div>
