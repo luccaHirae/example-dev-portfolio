@@ -33,6 +33,24 @@ const Header: FC = () => {
   const [bottomLineScope, bottomLineAnimate] = useAnimate();
   const [navScope, navAnimate] = useAnimate();
 
+  const handleClickMobileNavItem = (
+    event: React.MouseEvent<HTMLAnchorElement>
+  ) => {
+    event.preventDefault();
+    setIsOpen(false);
+
+    const url = new URL(event.currentTarget.href);
+    const hash = url.hash;
+
+    const target = document.querySelector(hash);
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
+
   useEffect(() => {
     if (isOpen) {
       topLineAnimate([
@@ -136,6 +154,7 @@ const Header: FC = () => {
             <a
               href={href}
               key={label}
+              onClick={handleClickMobileNavItem}
               className="text-stone-200 border-t last:border-b border-stone-800 py-8 group/nav-item relative isolate"
             >
               <div className="container !max-w-full flex items-center justify-between">
