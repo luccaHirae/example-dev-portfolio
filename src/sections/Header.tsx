@@ -204,7 +204,15 @@ const Header: FC = () => {
             <div className="flex items-center gap-4">
               <div
                 onClick={() => setIsOpen((prev) => !prev)}
-                className="size-11 border border-stone-400 rounded-full inline-flex items-center justify-center bg-stone-200"
+                role="button"
+                tabIndex={0}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    setIsOpen((prev) => !prev);
+                  }
+                }}
+                aria-label="Toggle Navigation"
+                className="size-11 border border-stone-400 rounded-full inline-flex items-center justify-center bg-stone-200 cursor-pointer hover:bg-stone-300 transition-all duration-500 active:bg-stone-400"
               >
                 <svg
                   width="24"
@@ -222,7 +230,6 @@ const Header: FC = () => {
                     ref={topLineScope}
                     style={{
                       transformOrigin: "12px 8px", // center of the rectangle
-                      // transform: "translateY(4px) rotate(45deg)",
                     }}
                   />
                   <motion.rect
@@ -234,7 +241,6 @@ const Header: FC = () => {
                     ref={bottomLineScope}
                     style={{
                       transformOrigin: "12px 16px", // center of the rectangle
-                      // transform: "translateY(-4px) rotate(-45deg)",
                     }}
                   />
                 </svg>
