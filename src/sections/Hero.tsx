@@ -2,19 +2,13 @@
 
 import Image from "next/image";
 import heroImage from "@/assets/images/hero-image.jpg";
-import SplitType from "split-type";
 import { FC, useEffect, useRef } from "react";
-import {
-  motion,
-  stagger,
-  useAnimate,
-  useScroll,
-  useTransform,
-} from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { Button } from "@/components/Button";
+import { useTextRevealAnimation } from "@/hooks/useTextRevealAnimation";
 
 const Hero: FC = () => {
-  const [titleScope, titleAnimate] = useAnimate();
+  const { scope, entranceAnimation } = useTextRevealAnimation();
   const scrollingDiv = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: scrollingDiv,
@@ -23,22 +17,8 @@ const Hero: FC = () => {
   const portraitWidth = useTransform(scrollYProgress, [0, 1], ["100%", "240%"]);
 
   useEffect(() => {
-    new SplitType(titleScope.current, {
-      types: "lines,words",
-      tagName: "span",
-    });
-
-    titleAnimate(
-      titleScope.current.querySelectorAll(".word"),
-      {
-        transform: "translateY(0)",
-      },
-      {
-        duration: 0.5,
-        delay: stagger(0.2),
-      }
-    );
-  }, [titleAnimate, titleScope]);
+    entranceAnimation();
+  }, [entranceAnimation]);
 
   return (
     <section>
@@ -52,7 +32,7 @@ const Hero: FC = () => {
               animate={{
                 opacity: 1,
               }}
-              ref={titleScope}
+              ref={scope}
               className="text-5xl mt-40 md:text-6xl md:mt-0 lg:text-7xl"
             >
               Crafting digital experiences through code and creative design
