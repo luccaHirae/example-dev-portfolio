@@ -48,7 +48,13 @@ const FAQs: FC = () => {
             <div
               key={question}
               onClick={() => handleQuestionClick(index)}
-              className="border-t last:border-b border-stone-400 border-dotted py-6 md:py-8 lg:py-10 relative isolate group/faq"
+              tabIndex={0}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  handleQuestionClick(index);
+                }
+              }}
+              className="border-t last:border-b border-stone-400 border-dotted py-6 md:py-8 lg:py-10 cursor-pointer relative isolate group/faq"
             >
               <div
                 className={twMerge(

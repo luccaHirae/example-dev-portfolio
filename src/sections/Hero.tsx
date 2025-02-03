@@ -21,7 +21,7 @@ const Hero: FC = () => {
   }, [entranceAnimation]);
 
   return (
-    <section>
+    <section id="home">
       <div className="grid md:grid-cols-12 md:h-screen items-stretch sticky top-0">
         <div className="md:col-span-7 flex flex-col justify-center">
           <div className="container !max-w-full">

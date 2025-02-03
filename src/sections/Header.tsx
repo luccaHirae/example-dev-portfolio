@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/Button";
-import { FC, useEffect, useState } from "react";
+import { FC, MouseEvent, useEffect, useState } from "react";
 import { motion, useAnimate } from "motion/react";
 
 const navItems = [
@@ -33,9 +33,7 @@ const Header: FC = () => {
   const [bottomLineScope, bottomLineAnimate] = useAnimate();
   const [navScope, navAnimate] = useAnimate();
 
-  const handleClickMobileNavItem = (
-    event: React.MouseEvent<HTMLAnchorElement>
-  ) => {
+  const handleClickMobileNavItem = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     setIsOpen(false);
 
