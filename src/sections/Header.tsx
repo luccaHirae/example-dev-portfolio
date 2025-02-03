@@ -212,7 +212,7 @@ const Header: FC = () => {
                   }
                 }}
                 aria-label="Toggle Navigation"
-                className="size-11 border border-stone-400 rounded-full inline-flex items-center justify-center bg-stone-200 cursor-pointer hover:bg-stone-300 transition-all duration-500 active:bg-stone-400"
+                className="size-11 border border-stone-400 rounded-full inline-flex items-center justify-center bg-stone-200 cursor-pointer hover:bg-red-orange-500 hover:text-white hover:border-red-orange-500 transition-all duration-300"
               >
                 <svg
                   width="24"
