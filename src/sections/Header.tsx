@@ -147,7 +147,7 @@ const Header: FC = () => {
     <header>
       <div
         ref={navScope}
-        className="fixed top-0 left-0 w-full h-0 overflow-hidden bg-stone-900 z-10"
+        className="fixed top-0 left-0 w-full h-0 overflow-hidden bg-stone-900 z-20"
       >
         <nav className="mt-20 flex flex-col">
           {navItems.map(({ href, label }) => (
@@ -184,7 +184,7 @@ const Header: FC = () => {
         </nav>
       </div>
 
-      <div className="fixed top-0 left-0 w-full mix-blend-difference backdrop-blur-md z-10">
+      <div className="fixed top-0 left-0 w-full mix-blend-difference backdrop-blur-md z-20">
         <div className="container !max-w-full">
           <div className="flex justify-between h-20 items-center">
             <div>
@@ -198,7 +198,7 @@ const Header: FC = () => {
         </div>
       </div>
 
-      <div className="fixed top-0 left-0 w-full z-10">
+      <div className="fixed top-0 left-0 w-full z-20">
         <div className="container !max-w-full">
           <div className="flex justify-end h-20 items-center">
             <div className="flex items-center gap-4">
